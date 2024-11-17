@@ -4,28 +4,31 @@ import java.util.List;
 import main.group.shapes.*;
 import main.group.color.*;
 
+import static main.group.shapes.ShapeDescriber.describe;
+import static main.group.shapes.ShapeRenderer.render;
+
 public class Main {
     public static void main(String[] args) {
 
         //Lab1
         Rectangle rect = new Rectangle(new Color(243,15,122,255),4, 6);
         Triangle triangle = new Triangle(new Color(126,231,122,255),6, 6, 6);
+        Circle circle = new Circle(new Color(25,13,64,255),12);
 
         List<ShapeExt> shapes = new ArrayList<>();
         shapes.add(triangle);
         shapes.add(rect);
+        shapes.add(circle);
 
-        ShapeDescriber describer = new ShapeDescriber();
-        ShapeRenderer renderer = new ShapeRenderer();
-        describer.describe(rect);
-        describer.describe(triangle);
+        describe(rect);
+        describe(triangle);
 
         rect.getColorDescription();
         triangle.getColorDescription();
 
-        renderer.render(rect);
-        renderer.render(triangle);
-        renderer.render(shapes);
+        render(rect);
+        render(triangle);
+        render(shapes);
 
         //Lab2
         Color color_1 = new Color();

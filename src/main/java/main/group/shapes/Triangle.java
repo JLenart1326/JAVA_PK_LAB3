@@ -9,10 +9,15 @@ public class Triangle extends ShapeExt{
 
     // Konstruktor (służy do tworzenia obiektów klasy)
     public Triangle(Color color, float a, float b, float c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
         this.color = color;
+        if(a < 0 || b < 0 || c < 0){
+            throw new IllegalArgumentException("Ujemny parametr!");
+        }
+        else{
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
     }
     public Triangle() {
         this.a = 0;
@@ -34,6 +39,9 @@ public class Triangle extends ShapeExt{
     };
     @Override
     public float getPerimeter(){
+        if (a + b <= c || a + c <= b || b + c <= a) {
+            throw new IllegalArgumentException("Podane długości boków nie tworzą trójkąta");
+        }
         return a+b+c;
     };
 }
